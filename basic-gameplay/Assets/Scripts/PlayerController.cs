@@ -5,12 +5,12 @@ public class PlayerController : MonoBehaviour
     private const float Speed = 15.0f;
     private const float Strength = 150.0f;
 
-    //private Rigidbody _playerRigidBody;
+    private Rigidbody _playerRigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        //_playerRigidBody = GetComponent<Rigidbody>();
+        _playerRigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -37,5 +37,21 @@ public class PlayerController : MonoBehaviour
 
         //_playerRigidBody.AddForce(Vector3.forward * verticalInput * Time.deltaTime * Strength);
         //_playerRigidBody.AddForce(Vector3.right * horizontalInput * Time.deltaTime * Strength);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("The player was hit by an enemy.");
+        }
     }
 }
