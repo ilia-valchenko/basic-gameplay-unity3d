@@ -7,3 +7,6 @@ With this method you basically teletransport the GameObject, not taking in accou
 
 ### AddForce
 With this one you are adding force to the RigidBody of the GameObject, so all the movement will be taking physics and colliders into account. If you need to move a RigidBody (like a Player) I recommend using [MovePosition](https://docs.unity3d.com/ScriptReference/Rigidbody.MovePosition.html). It's more precise than AddForce and uses the physics motor.
+
+### Screenshots
+<img title="screenshot-1" alt="screenshot-1" src="/images/screenshot-1.png">
